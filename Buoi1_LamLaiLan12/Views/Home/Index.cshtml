@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<DbDaTaAccess.BaiViet>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   
+</head>
+<body>
+    <h2>
+        Hiển Thị Dữ liệu vào Bảng : Với IdDanhMuc = 2
+    </h2>
+    <table border="2" cellpadding="2" cellspacing="2">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Id Bai Viet</th>
+                <th>Nd BViet</th>
+                <th>Tac Gia</th>
+                <th>Id Danh Muc</th>
+                <th>Chuc Nang</th>
+            </tr>
+
+        <thead>
+        <TBody>
+            @if (Model.Count > 0 && Model != null)
+            {
+                var dem = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@dem</td>
+                        <td>@item.IdBaiViet</td>
+                        <td>@item.NoiDungBaiViet</td>
+                        <td>@item.TacGia</td>
+                        <td>@item.IDDanhMuc</td>
+                        <td id="@item.IdBaiViet"><span id="btnEdit">Edit</span>||<span id="btnDelete" class="@item.IdBaiViet">Delete</span></td>
+                    </tr>
+                    dem = dem + 1;
+                }
+            }
+        </TBody>
+    </table>
+    <div>
+        <h2> Để Thêm Mới Dữ Liệu</h2>
+
+        <label for="txtIdDanhMuc">ID Danh Muc</label>
+        <input id="txtIdDanhMuc" type="text" value="" />
+
+
+        <label for="txtNoiDungBaiViet">Noi Dung Bai Viet </label>
+        <input type="text" name="name" value="" id="txtNoiDungBaiViet" />
+
+        <label for="txtTacGia">Tac Gia</label>
+        <input type="text" id="txtTacGia" name="name" value="" />
+
+
+        <button id="btnAdd">Add</button>
+        <br />
+        <br />
+        @*<button id="btnDeleTe2">Delete</button>*@
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#btnAdd").click(function () {
+                var inputFromView = {
+                    IDDanhMuc: $("#txtIdDanhMuc").val(),
+                    NoiDungBaiViet: $("#txtNoiDungBaiViet").val(),
+                    TacGia: $("#txtTacGia").val(),
+
+                };
+                ThemMoiBaiViet(inputFromView);
+            });
+            $("#btnDelete").click(function () {
+                var baiVietMuonXoa = {
+                    IdBaiViet: $(this).attr("class"),
+                };
+                console.log("IdBaiViet : ", baiVietMuonXoa);
+                debugger;
+                debugger;
+
+                XoaBaiViet(BaiVietMuonXoa);
+            });
+        });
+        function ThemMoiBaiViet(dulieuTruyenChoHam) {
+
+            $.ajax({
+                type: "Post",
+                url: "/Home/ThemMoiBaiViet",
+                data: dulieuTruyenChoHam,
+                success: function (dataConTroller) {
+                    alert(dataConTroller.ReturnMessage);
+                },
+                error: function () {
+                    alert(dataConTroller.ReturnMessage);
+                }
+            });
+        }
+        function LayThongTinBaiViet(baiVietTuView) {
+            var bai
+            alert("Ban Vua Lay Thong Tin Bai Viet co id = ");
+        }
+    </script>
+</body>
+</html>

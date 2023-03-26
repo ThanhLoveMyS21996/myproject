@@ -1,0 +1,6 @@
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\bin\Debug\DbDaTaAccess.dll
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\bin\Debug\DbDaTaAccess.pdb
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\obj\Debug\DbDaTaAccess.csproj.AssemblyReference.cache
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\obj\Debug\DbDaTaAccess.csproj.CoreCompileInputs.cache
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\obj\Debug\DbDaTaAccess.dll
+C:\Users\tigerlab\source\repos\Buoi1_LamLaiLan12\DbDaTaAccess\obj\Debug\DbDaTaAccess.pdb
